@@ -51,19 +51,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<Category> getAll() {
         SQLiteDatabase db = this.getReadableDatabase();
-        List<Category> personList = new ArrayList<>();
+        List<Category> categoryList = new ArrayList<>();
         String sql = "SELECT * FROM " + CATEGORY_TABLE;
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor.moveToFirst()) {
             do {
                 int id = cursor.getInt(0);
                 String name = cursor.getString(1);
-                personList.add(new Category(id, name));
+                categoryList.add(new Category(id, name));
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
-        return personList;
+        return categoryList;
     }
 
     public Category getById(Integer id) {
@@ -73,9 +73,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor.moveToFirst()) {
             do {
-                int noteId = cursor.getInt(0);
+                int catId = cursor.getInt(0);
                 String name = cursor.getString(1);
-                category = new Category(noteId, name);
+                category = new Category(catId, name);
             } while (cursor.moveToNext());
         }
         cursor.close();

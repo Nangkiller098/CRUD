@@ -38,14 +38,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         Category category = categoryList.get(position);
         if (category != null) {
             if (category.getName() != null) {
-                holder.name .setText(category.getName());
+                holder.name.setText(category.getName());
             }
-            holder.itemCard.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onClickListener.onClickItem(view, category);
-                }
-            });
         }
     }
 
@@ -56,12 +50,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public static class CategoryViewHolder extends RecyclerView.ViewHolder {
         private final TextView name;
-        private final CardView itemCard;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.txtCategory);
-            itemCard = itemView.findViewById(R.id.itemCard);
         }
     }
 
